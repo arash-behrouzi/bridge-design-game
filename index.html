@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Span Lab | Bridge Design Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <div>
+        <div class="eyebrow">STRUCTURAL DESIGN CHALLENGE / 01</div>
+        <h1>SPAN<span>LAB</span></h1>
+        <p>Engineer a truss. Balance strength, material and cost. Send a vehicle across to test your design.</p>
+      </div>
+      <div class="header-badge">BRIDGE<br>DESIGN<br>STUDIO <strong>01</strong></div>
+    </header>
+
+    <section class="workspace" aria-label="Bridge design workspace">
+      <div class="workspace-top">
+        <div class="label"><span class="live-dot"></span> DESIGN CANVAS <small>68 m clear span</small></div>
+        <div class="toolbar">
+          <label for="material">MEMBER TYPE</label>
+          <select id="material" aria-label="Member material">
+            <option value="steel">Steel beam · strong</option>
+            <option value="timber">Timber beam · light</option>
+            <option value="cable">Cable · economical</option>
+          </select>
+          <button id="erase" type="button" aria-pressed="false">Erase</button>
+        </div>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="bridge" width="1000" height="560" aria-label="Bridge editor: click to place joints, then click two joints to connect them"></canvas>
+      </div>
+      <div class="workspace-bottom">
+        <span id="hint" role="status">Click the grid to place a joint, then click two joints to connect them.</span>
+        <span>GRID 3.4 m · SNAP ON</span>
+      </div>
+    </section>
+
+    <section class="dashboard" aria-label="Design dashboard">
+      <div class="metrics">
+        <div class="metric"><span>ESTIMATED COST</span><strong id="cost">0</strong><small id="budget-note">Budget 6,500 credits</small></div>
+        <div class="metric"><span>MEMBERS</span><strong id="members">0</strong><small id="joints">11 fixed deck joints</small></div>
+        <div class="metric"><span>WORST RESERVE</span><strong id="reserve">—</strong><small>After a vehicle test</small></div>
+        <div class="metric"><span>BEST SCORE</span><strong id="best">—</strong><small>This session</small></div>
+      </div>
+      <div class="controls">
+        <button id="test" type="button" class="primary">▶ TEST BRIDGE</button>
+        <button id="example" type="button">LOAD STARTER TRUSS</button>
+        <button id="reset" type="button">CLEAR DESIGN</button>
+      </div>
+      <div id="result" class="result" role="status">Build a truss or load the starter design, then run a vehicle test.</div>
+    </section>
+
+    <footer>
+      <div><strong>HOW TO BUILD</strong> Click empty grid space to add joints. Click one joint, then another to add a member. Choose a member type first; use Erase to remove members or free joints. Escape cancels selection.</div>
+      <div><strong>DESIGN BRIEF</strong> Keep the vehicle supported from both banks and stay within budget. This is a visual game with a simplified connectivity and strength heuristic, <em>not</em> a structural analysis or engineering certification tool.</div>
+    </footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
